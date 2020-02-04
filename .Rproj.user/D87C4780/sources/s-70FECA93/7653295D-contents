@@ -1,0 +1,31 @@
+setwd("/Users/nkuebler/Documents/Universität/R/Day1")
+
+# Install and load packages
+# install.packages("data.table")
+# install.packages("lubridate")
+# install.packages("Hmisc")
+library(data.table)
+library(lubridate)
+library(Hmisc)
+library(RFMPackage)
+#Read in the data transactions.csv. ####
+transactions <- fread("transactions.csv")
+
+# Change dates
+transactions[, TransDate:=dmy(TransDate, tz="UTC")]
+
+# Check the data
+head(transactions)
+str(transactions)
+summary(transactions)
+
+
+
+# Part 2: Aggregation of variables ####
+# ------------------------------------------------------------------------------
+
+#Save the latest transaction as the object now in your R environment. ####
+max.Date <- max(transactions[, TransDate])
+
+result <- RFMfunction(transactions, 20, 20, 60)
+print(result)

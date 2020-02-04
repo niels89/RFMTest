@@ -1,0 +1,12 @@
+Package: RFMPackage
+Type: Package
+Title: Provides RFM modelling functionality
+Version: 0.1.0
+Author: Niels Kübler <niels.kuebler@gmail.com>
+Maintainer: The package maintainer <yourself@somewhere.net>
+Description: Provides an RFM model
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Depends: R (>= 3.0.1), data.table, Hmisc
+RoxygenNote: 7.0.2
